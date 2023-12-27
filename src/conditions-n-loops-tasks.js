@@ -125,6 +125,54 @@ function convertToRomanNumerals(/* num */) {
  */
 function convertNumberToString(/* numberStr */) {
   throw new Error('Not implemented');
+  // let res = '';
+  // let arr = [];
+  // for (let i = 0; i <= numberStr.length; i += 1) {
+  //   switch (i) {
+  //     case '1':
+  //       // arr.push('one');
+  //       res += 'one';
+  //       break;
+  //     case '2':
+  //       arr.push('two');
+  //       break;
+  //     case '3':
+  //       arr.push('three');
+  //       break;
+  //     case '4':
+  //       arr.push('four');
+  //       break;
+  //     case '5':
+  //       arr.push('five');
+  //       break;
+  //     case '6':
+  //       arr.push('six');
+  //       break;
+  //     case '7':
+  //       arr.push('seven');
+  //       break;
+  //     case '8':
+  //       arr.push('eight');
+  //       break;
+  //     case '9':
+  //       arr.push('nine');
+  //       break;
+  //     case '-':
+  //       arr.push('minus');
+  //       break;
+  //     case '.':
+  //       arr.push('point');
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // }
+  // for (let i = 0; i <= arr.length; i++) {
+
+  // }
+  // console.log(numberStr);
+  // console.log(arr);
+  // return arr.join(' ');
 }
 
 /**
@@ -157,8 +205,15 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  let res = -1;
+  for (let i = 0; i <= str.length; i += 1) {
+    if (str[i] === letter) {
+      res = i;
+      break;
+    }
+  }
+  return res;
 }
 
 /**
@@ -176,8 +231,13 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const str = `${num}`;
+  let res = false;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === `${digit}`) res = true;
+  }
+  return res;
 }
 
 /**
