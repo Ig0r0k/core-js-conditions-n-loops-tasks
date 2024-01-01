@@ -196,56 +196,53 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
-  // let res = '';
-  // let arr = [];
-  // for (let i = 0; i <= numberStr.length; i += 1) {
-  //   switch (i) {
-  //     case '1':
-  //       // arr.push('one');
-  //       res += 'one';
-  //       break;
-  //     case '2':
-  //       arr.push('two');
-  //       break;
-  //     case '3':
-  //       arr.push('three');
-  //       break;
-  //     case '4':
-  //       arr.push('four');
-  //       break;
-  //     case '5':
-  //       arr.push('five');
-  //       break;
-  //     case '6':
-  //       arr.push('six');
-  //       break;
-  //     case '7':
-  //       arr.push('seven');
-  //       break;
-  //     case '8':
-  //       arr.push('eight');
-  //       break;
-  //     case '9':
-  //       arr.push('nine');
-  //       break;
-  //     case '-':
-  //       arr.push('minus');
-  //       break;
-  //     case '.':
-  //       arr.push('point');
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
-  // for (let i = 0; i <= arr.length; i++) {
-
-  // }
-  // console.log(numberStr);
-  // console.log(arr);
-  // return arr.join(' ');
+function convertNumberToString(numberStr) {
+  let res = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (numberStr[i]) {
+      case '0':
+        res += 'zero';
+        break;
+      case '1':
+        res += 'one';
+        break;
+      case '2':
+        res += 'two';
+        break;
+      case '3':
+        res += 'three';
+        break;
+      case '4':
+        res += 'four';
+        break;
+      case '5':
+        res += 'five';
+        break;
+      case '6':
+        res += 'six';
+        break;
+      case '7':
+        res += 'seven';
+        break;
+      case '8':
+        res += 'eight';
+        break;
+      case '9':
+        res += 'nine';
+        break;
+      case '-':
+        res += 'minus';
+        break;
+      case '.':
+        res += 'point';
+        break;
+      default:
+        res += 'point';
+        break;
+    }
+    if (i + 1 < numberStr.length) res += ' ';
+  }
+  return res;
 }
 
 /**
