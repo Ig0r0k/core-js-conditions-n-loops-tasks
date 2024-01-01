@@ -366,8 +366,76 @@ function getBalanceIndex(arr) {
  *          [10, 9,  8,  7]
  *        ]
  */
-function getSpiralMatrix(/* size */) {
-  throw new Error('Not implemented');
+function getSpiralMatrix(size) {
+  const matrix = [];
+  const obj = {};
+  let count = 1;
+  let direction = 'right';
+  let coordX = 0;
+  let coordY = 0;
+  let reloadCount = 0;
+  for (let y = 0; y < size; y += 1) {
+    for (let x = 0; x < size; x += 1) {
+      obj[`${x}${y}`] = 0;
+    }
+  }
+  obj['00'] = count;
+  while (count < size * size + 1) {
+    if (direction === 'right') {
+      if (coordX + 1 === size) {
+        direction = 'down';
+      } else if (obj[`${coordX + 1}${coordY}`]) {
+        direction = 'down';
+      } else {
+        coordX += 1;
+        count += 1;
+        obj[`${coordX}${coordY}`] = count;
+      }
+    }
+    if (direction === 'down') {
+      if (coordY + 1 === size) {
+        direction = 'left';
+      } else if (obj[`${coordX}${coordY + 1}`]) {
+        direction = 'left';
+      } else {
+        coordY += 1;
+        count += 1;
+        obj[`${coordX}${coordY}`] = count;
+      }
+    }
+    if (direction === 'left') {
+      if (coordX - 1 < 0) {
+        direction = 'up';
+      } else if (obj[`${coordX - 1}${coordY}`]) {
+        direction = 'up';
+      } else {
+        coordX -= 1;
+        count += 1;
+        obj[`${coordX}${coordY}`] = count;
+      }
+    }
+    if (direction === 'up') {
+      if (coordY - 1 < 0) {
+        direction = 'right';
+      } else if (obj[`${coordX}${coordY - 1}`]) {
+        direction = 'right';
+      } else {
+        coordY -= 1;
+        count += 1;
+        obj[`${coordX}${coordY}`] = count;
+      }
+    }
+    reloadCount += 1;
+    if (reloadCount > size ** 2 + 10) break;
+  }
+  for (let y = 0; y < size; y += 1) {
+    const rowArr = [];
+    for (let x = 0; x < size; x += 1) {
+      rowArr[x] = obj[`${x}${y}`];
+    }
+    matrix[y] = rowArr;
+  }
+  return matrix;
 }
 
 /**
